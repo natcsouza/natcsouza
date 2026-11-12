@@ -31,11 +31,12 @@ publicar, instrumentar com telemetria e corrigir o que a telemetria mostrar.
 
 | Área | Tecnologias |
 |---|---|
-| **Backend** | Java 17/21, Spring Boot 3, Spring Data JPA, Spring Security, Thymeleaf, Flyway, APIs REST, Swagger/OpenAPI, JUnit 5, Mockito |
+| **Backend** | Java 17/21, Spring Boot 3, Spring Data JPA, Spring Security, Thymeleaf, Flyway, APIs REST, Swagger/OpenAPI, JUnit 5, Mockito · C# / .NET 8, ASP.NET Core, Entity Framework Core · Node.js, Express |
 | **Cloud & DevOps** | Azure App Service, Azure SQL, Azure Database for PostgreSQL, Azure Container Registry, Azure Container Instances, Application Insights, Azure CLI, Azure DevOps Pipelines, Docker, Docker Compose |
 | **Front-end** | React 18, TypeScript, Vite, React Router, React Hook Form, TailwindCSS, Next.js, HTML/CSS |
-| **Dados** | Oracle Database, PostgreSQL, MySQL, Azure SQL, modelagem relacional, PL/SQL, DDL/DML |
-| **Python & IA** | Python 3, scikit-learn, pandas, Flask, Node-RED, modelos de classificação e clusterização |
+| **Dados** | Oracle Database, PostgreSQL, MySQL, Azure SQL, modelagem relacional, PL/SQL (packages, functions, procedures), DDL/DML |
+| **Python & IA** | Python 3, scikit-learn, pandas, Flask, FastAPI, Jupyter, Node-RED, OpenCV, DeepFace, Ollama (LLM local), modelos de classificação, regressão e clusterização |
+| **IoT & Embarcados** | ESP32 / ESP32-C3, Arduino (C++), sensores DHT, EEPROM, MQTT, Wokwi |
 | **Processo** | Git/GitHub, Azure Boards, planejamento de release, plano de testes, Selenium IDE |
 
 ---
@@ -85,6 +86,53 @@ Mesma plataforma SOLIN, desta vez com aplicação e banco **inteiramente em cont
 imagens publicadas no Azure Container Registry e executadas em Azure Container Instances,
 com todo o provisionamento via Azure CLI e prova de persistência de dados após reinício
 do container.
+
+### AURAmed — agendamento de consultas por conversa natural
+**Projeto acadêmico · IA aplicada**
+
+Assistente que agenda consultas médicas a partir de linguagem natural, com o
+**modelo de linguagem rodando localmente** em container Ollama com GPU.
+
+- **Stack:** React + TypeScript · Express (Node) · FastAPI · Ollama · Docker Compose
+- **Integrações:** Google Calendar e Google Sheets
+- **A decisão central:** LLM local, não API de terceiros — nenhuma mensagem de paciente sai da máquina, que é o requisito que normalmente impede clínicas de adotarem modelos hospedados.
+
+### E-Commerce API — .NET 8 em camadas
+**CP4 · Advanced Business Development with .NET**
+
+API de produtos e pedidos em ASP.NET Core 8, estruturada em
+`Domain / Application / Infrastructure / Presentation`, com use cases, mappers e
+repositórios isolados por interface.
+
+- **Stack:** C# · .NET 8 · Entity Framework Core · Oracle
+- **Qualidade:** 50 testes automatizados, health checks de liveness e de banco, Swagger
+
+### InfluencyDB — regras de negócio em PL/SQL
+**Checkpoint · Mastering Relational and Non-Relational Database**
+
+Package Oracle que move duas regras para dentro do banco: motor de rankeamento de
+influenciadores e automação de pagamento de campanha.
+
+- A *package specification* publica só as assinaturas — a fórmula do score não é visível a quem consome
+- Erros de negócio expostos como exceções nomeadas (`PRAGMA EXCEPTION_INIT`), não como códigos numéricos soltos
+
+### IRIS — detecção de emoções com saída MQTT
+**Iniciação Científica**
+
+Classifica emoções faciais em tempo real e publica o resultado em um broker MQTT,
+de onde dispositivos IoT reagem.
+
+- **Stack:** Python · OpenCV · DeepFace · MQTT (paho)
+- Inferência em thread separada da captura, para o vídeo não travar durante a classificação
+
+### Genius — ESP32-C3
+**CP1 · IoT**
+
+Jogo da memória em hardware: 4 LEDs, botões, buzzer com nota própria por cor e três
+níveis de dificuldade. Os recordes ficam gravados em **EEPROM**, sobrevivendo ao
+desligamento da placa.
+
+- **Stack:** C++ · ESP32-C3 · Wokwi
 
 ### Hospital Clínico — SPA de gestão hospitalar
 **Challenge · Front-end**
