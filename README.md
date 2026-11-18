@@ -34,6 +34,7 @@ publicar, instrumentar com telemetria e corrigir o que a telemetria mostrar.
 | **Backend** | Java 17/21, Spring Boot 3, Spring Data JPA, Spring Security, Thymeleaf, Flyway, APIs REST, Swagger/OpenAPI, JUnit 5, Mockito · C# / .NET 8, ASP.NET Core, Entity Framework Core · Node.js, Express |
 | **Cloud & DevOps** | Azure App Service, Azure SQL, Azure Database for PostgreSQL, Azure Container Registry, Azure Container Instances, Application Insights, Azure CLI, Azure DevOps Pipelines, Docker, Docker Compose |
 | **Front-end** | React 18, TypeScript, Vite, React Router, React Hook Form, TailwindCSS, Next.js, HTML/CSS |
+| **Mobile** | React Native, Expo, TypeScript, Flexbox, arquitetura em camadas |
 | **Dados** | Oracle Database, PostgreSQL, MySQL, Azure SQL, modelagem relacional, PL/SQL (packages, functions, procedures), DDL/DML |
 | **Python & IA** | Python 3, scikit-learn, pandas, Flask, FastAPI, Jupyter, Node-RED, OpenCV, DeepFace, Ollama (LLM local), modelos de classificação, regressão e clusterização |
 | **IoT & Embarcados** | ESP32 / ESP32-C3, Arduino (C++), sensores DHT, EEPROM, MQTT, Wokwi |
@@ -133,6 +134,24 @@ níveis de dificuldade. Os recordes ficam gravados em **EEPROM**, sobrevivendo a
 desligamento da placa.
 
 - **Stack:** C++ · ESP32-C3 · Wokwi
+
+### React Native — da primeira tela à arquitetura limpa
+**Mobile Application Development · 14 entregas avaliadas**
+
+Conjunto de exercícios que acompanha a evolução de um mesmo problema — cadastro de
+revenda de carros — ao longo de quatro versões:
+
+| Versão | O que muda |
+|---|---|
+| Formulário | tudo em `App.tsx`: estado, rede e interface juntos |
+| Arquitetura Clean | separado em `Model`, `Fetcher`, `Service`, `Control`, `App` |
+| + feedback | mensagens de erro e indicador de carregamento, sem tocar nas camadas |
+| + validação | regras de entrada na camada de negócio, não espalhadas pelos campos |
+
+A dependência aponta sempre para dentro: trocar a API de origem mexe só no
+`Fetcher`, e a tela não fica sabendo.
+
+- **Stack:** React Native · TypeScript · Expo · Flexbox
 
 ### Hospital Clínico — SPA de gestão hospitalar
 **Challenge · Front-end**
